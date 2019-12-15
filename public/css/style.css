@@ -19,7 +19,10 @@ body {
   font-weight: 400;
   letter-spacing: 0.166667px;
   line-height: 1.7em;
-  color: #818385;
+  background: #642B73;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #C6426E, #642B73);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #C6426E, #642B73); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 p {
