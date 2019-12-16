@@ -1,37 +1,28 @@
-/*!------------------------------------------------------------------
-[MAIN STYLESHEET]
 
-PROJECT:	Thomson
-VERSION:	1.0
--------------------------------------------------------------------*/
-/*------------------------------------------------------------------
-[TABLE OF CONTENTS]
--------------------------------------------------------------------*/
-@import url("https://fonts.googleapis.com/css?family=Lato:400,600,700|Work+Sans:400,700,800");
+@import url("https://fonts.googleapis.com/css?family=PT+Sans:400,600,700|Raleway:400,700,800");
 html {
   overflow-x: hidden;
 }
 
 body {
-  font-family: "Lato", sans-serif;
+  font-family: 'PT Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.166667px;
   line-height: 1.7em;
-  background: #642B73;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #C6426E, #642B73);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #C6426E, #642B73); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+  background: rgb(255,255,255);
+  background: linear-gradient(132deg, rgba(255,255,255,1) 0%, rgba(192,230,240,1) 50%, rgba(151,192,203,1) 100%);
 }
 
 p {
-  color: #818385;
+  color: #000000;
 }
 
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-  font-family: "Work Sans", sans-serif;
-  color: #000;
+  font-family: 'Raleway', sans-serif;
+  color: #000000;
   font-weight: 600;
 }
 
@@ -84,7 +75,7 @@ h6, .h6 {
   font-size: 14px;
   line-height: 14px;
   font-weight: 600;
-  box-shadow: #999999 0px 0px 0px 0px;
+  box-shadow: #fff 0px 0px 0px 0px;
 }
 
 .btn:focus {
@@ -535,6 +526,7 @@ ul.dropdown-menu > li > a:hover, .navbar ul ul ul.dropdown-menu li .nav-link:hov
 }
 
 .progress-bar-content .progress-title {
+  font-family: 'Raleway', sans-serif;
   text-transform: capitalize;
   font-size: 14px;
   color: #000;
