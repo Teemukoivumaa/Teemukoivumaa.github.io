@@ -45,7 +45,25 @@
 <!-- Navigation Start -->
 <!-- Header Start -->
 
-<iframe src="header.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+<nav class="navbar navbar-expand-lg  main-nav " id="navbar">
+	<div class="container">
+	  <a class="navbar-brand" href="index.html">
+	  	<img src="images/cover.png" alt="logo" height="400" width="400"  class="img-fluid">
+	  </a>
+
+	  <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="ti-align-justify"></span>
+	  </button>
+
+		<div class="collapse navbar-collapse" id="navbarsExample09">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item  active"><a class="nav-link" href="index.html">Home</a></li>
+				<li class="nav-item  active"><a class="nav-link" href="about.html">About Me</a></li>
+				<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
 <!-- Header Close -->
 
@@ -70,8 +88,7 @@
                 I'm on my first year studying <b>Information Technology</b>. On my free time I make my own programming projects, so I can learn more.
 
                 <p class="mb-4">I also like playing with electronics, mainly with a <b>Arduino</b> or <b>ESP8266</b>. Recently I got a free <b>Raspberry Pi 2B</b> from my school,
-                so that has helped me a lot with
-                my projects. I can host my databases and also this website from the Raspberry.
+                so that has helped me a lot with my projects. I can host my databases and also this website from the Raspberry.
 			</div>
 		</div>
 	</div>
@@ -81,112 +98,7 @@
 <!-- Portfolio start -->
 <section class="portfolio ">
 	<div class="container">
-		<div class="row mb-5">
-	      	<div class="col-10">
-		        <div class="btn-group btn-group-toggle " data-toggle="buttons">
-		          <label class="btn active ">
-		            <input type="radio" name="shuffle-filter" value="all" checked="checked" /> All Projects
-		          </label>
-		          <label class="btn">
-		            <input type="radio" name="shuffle-filter" value="c++" /> C++ projects
-		          </label>
-		          <label class="btn">
-		            <input type="radio" name="shuffle-filter" value="android" /> Android projects
-		          </label>
-		          <!--<label class="btn">
-		            <input type="radio" name="shuffle-filter" value="python" /> Python projects
-		          </label> -->
-		          <label class="btn">
-		            <input type="radio" name="shuffle-filter" value="web" />  Web Development
-		          </label>
-              <!--<label class="btn">
-                <input type="radio" name="shuffle-filter" value="electronics" /> Electronics
-              </label>-->
-		        </div>
-	      	</div>
-    	</div>
-
-		<div class="row shuffle-wrapper portfolio-gallery">
-	      <div class="col-lg-4 col-6 mb-4 shuffle-item"  data-groups="[&quot;web&quot;]">
-		      	<div class="position-relative inner-box">
-		          <div class="image position-relative ">
-	               <img src="images/portfolio/WebSiteSmall.png" alt="portfolio-image" class="img-fluid w-100 d-block">
-	                <div class="overlay-box">
-	                  <div class="overlay-inner">
-	                    <a class="overlay-content" href="portfolio-website.html">
-	                      <h5 class="mb-0">My own website</h5>
-	                      <p>Web development</p>
-	                    </a>
-	                  </div>
-	                </div>
-	            </div>
-		      </div>
-	      </div>
-
-	      <div class="col-lg-4 col-6 mb-4 shuffle-item" data-groups="[&quot;c++&quot;]">
-	        <div class="position-relative inner-box" >
-	            <div class="image position-relative ">
-	               <img src="images/portfolio/managementComputersSmall.png" alt="portfolio-image" class="img-fluid w-100 d-block">
-	                <div class="overlay-box">
-	                  <div class="overlay-inner">
-		                    <a class="overlay-content" href="portfolio-management.html">
-		                      <h5 class="mb-0">Store Management System</h5>
-		                      <p>C++</p>
-		                    </a>
-	                	</div>
-		            </div>
-		        </div>
-		      </div>
-	      </div>
-
-	      <!-- <div class="col-lg-4 col-6 mb-4 shuffle-item" data-groups="[&quot;python&quot;]">
-	        <div class="position-relative inner-box">
-	            <div class="image position-relative ">
-	               <img src="images/portfolio/3.jpg" alt="portfolio-image" class="img-fluid w-100 d-block">
-	                <div class="overlay-box">
-	                  <div class="overlay-inner">
-	                    <a class="overlay-content" href="portfolio-single.html">
-	                      <h5 class="mb-0">Business </h5>
-	                      <p>Python</p>
-	                    </a>
-	                  </div>
-	                </div>
-	            </div>
-	        </div>
-	      </div> -->
-
-	      <div class="col-lg-4 col-6 mb-4 shuffle-item" data-groups="[&quot;android&quot;]">
-	        <div class="position-relative inner-box">
-	            <div class="image position-relative ">
-	               <img src="images/portfolio/BankLogin.jpg" alt="portfolio-image" class="img-fluid w-100 d-block">
-	                <div class="overlay-box">
-	                  <div class="overlay-inner">
-	                    <a class="overlay-content" href="portfolio-single.html">
-	                      <h5 class="mb-0">Banking App</h5>
-	                      <p>Android App</p>
-	                    </a>
-	                  </div>
-	                </div>
-	            </div>
-	        </div>
-	      </div>
-
-	      <!-- <div class="col-lg-4 col-6 mb-4 shuffle-item" data-groups="[&quot;electronics&quot;, &quot;web&quot;]">
-	        <div class="position-relative inner-box">
-	            <div class="image position-relative ">
-	               <img src="images/portfolio/7.jpg" alt="portfolio-image" class="img-fluid w-100 d-block">
-	                <div class="overlay-box">
-	                  <div class="overlay-inner">
-	                    <a class="overlay-content" href="portfolio-single.html">
-	                       <h5 class="mb-0">Automatic Plant Waterer</h5>
-	                      	<p>Electronics</p>
-	                    </a>
-	                  </div>
-	                </div>
-	            </div>
-	        </div>
-	      </div> -->
-	    </div>
+		
 	</div>
 </section>
 <!-- Portfolio End -->
@@ -242,7 +154,24 @@
 
 <!--  Footer Start-->
 
-<iframe src="footer.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+<section class="footer">
+	<div class="container">
+		<div class="row ">
+			<div class="col-lg-6">
+				<p class="mb-0"><a class="text-white">Developed by Teemu Koivumaa</a></p>
+			</div>
+			<div class="col-lg-6">
+				<div class="widget footer-widget text-lg-right mt-5 mt-lg-0">
+					<ul class="list-inline mb-0">
+						<li class="list-inline-item"><a href="https://github.com/Teemukoivumaa" target="_blank"><i class="ti-github mr-3"></i></a></li>
+            <li class="list-inline-item"><a href="https://www.linkedin.com/in/teemukoivumaa/" target="_blank"><i class="ti-linkedin mr-3"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
 
 <!-- Footer end -->
 
@@ -258,9 +187,6 @@
 <script src="plugins/counto/apear.js"></script>
 <script src="plugins/counto/counTo.js"></script>
 
- <!-- Google Map -->
-<script src="plugins/google-map/map.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
 <!-- Main Script -->
 <script src="js/script.js"></script>
 
