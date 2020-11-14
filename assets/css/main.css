@@ -98,7 +98,7 @@ input, select, textarea {
 	}
 	
 	div.bannerPicture {
-		background: url("../../images/coverNew.jpg");
+		background: url("../../images/cover.JPG");
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-color: #000000;
