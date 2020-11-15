@@ -3334,6 +3334,67 @@ input, select, textarea {
 
 /* Wrapper */
 
+	.loaderWrap {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		background-color: #e7bf84;
+	}
+
+	.loaderFirst {
+		font-size: 100px;
+		font-weight: 600;
+		color: #000000;
+		-webkit-animation: fadeInOut 2s linear infinite; /* Safari */
+		animation-name: fadeInOut;
+		animation-duration: 2s;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+		opacity: 1;
+	}
+
+	.loaderSecond {
+		font-size: 100px;
+		font-weight: 600;
+		color: #000000;
+		-webkit-animation: fadeOutIn 2s linear infinite; /* Safari */
+		animation-name: fadeOutIn;
+		animation-duration: 2s;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+		opacity: 0;
+	}
+	  
+	  /* Safari */
+	  @-webkit-keyframes fadeInOut {
+		50% { 
+			opacity: 0;
+		}
+	  }
+	  
+	  @-webkit-keyframes fadeOutIn {
+		50% { 
+			opacity: 1;
+		}
+	  }
+
+	  @keyframes fadeInOut {
+		50% { 
+			opacity: 0;
+		}
+	  }
+
+	  @keyframes fadeOutIn {
+		50% { 
+			opacity: 1;
+		}
+	  }
+
 	#wrapper > * > .inner {
 		width: 100%;
 		max-width: 68em;
