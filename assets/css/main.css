@@ -3333,6 +3333,9 @@ input, select, textarea {
 		}
 
 /* Wrapper */
+	.loaderHeader {
+		flex: 0 0 120px;
+	}
 
 	.loaderWrap {
 		width: 100%;
@@ -3347,7 +3350,8 @@ input, select, textarea {
 	}
 
 	.loaderFirst {
-		font-size: 100px;
+		padding-left: 15%;
+		font-size: 500%;
 		font-weight: 600;
 		color: #000000;
 		-webkit-animation: fadeInOut 2s linear infinite; /* Safari */
@@ -3359,7 +3363,7 @@ input, select, textarea {
 	}
 
 	.loaderSecond {
-		font-size: 100px;
+		font-size: 500%;
 		font-weight: 600;
 		color: #000000;
 		-webkit-animation: fadeOutIn 2s linear infinite; /* Safari */
