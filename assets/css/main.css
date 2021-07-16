@@ -17,7 +17,8 @@ section, summary, time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;}
+	vertical-align: baseline;
+}
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -25,6 +26,33 @@ footer, header, hgroup, menu, nav, section {
 
 body {
 	line-height: 1;
+}
+
+html.blogBody {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 140px;
+	margin-right: 140px;
+	background-color: #000000;
+}
+
+.indent {
+	margin-left: 50px;
+}
+
+.blogText {
+	margin-right: 100px;
+}
+
+.instructions{
+	padding-left: 10px;
+	margin-right: 110px;
+	background-color: rgba(31, 22, 22, 0.199);
+	border-radius: 5px;
+}
+
+.smallText {
+	font-size: 11pt;
 }
 
 ol, ul {
@@ -104,6 +132,8 @@ input, select, textarea {
 		background-color: #000000;
 	}
 
+	
+
 	div.insideBanner {
 		padding-left: 10vmax;
 	}
@@ -151,13 +181,13 @@ input, select, textarea {
 		-ms-transition: border-bottom-color 0.2s ease, color 0.2s ease;
 		transition: border-bottom-color 0.2s ease, color 0.2s ease;
 		text-decoration: none;
-		color: #585858;
-		border-bottom: dotted 1px rgba(88, 88, 88, 0.5);
+		color: #bababa;
+		border-bottom: dotted 1px rgba(255, 255, 255, 0.5);
 	}
 
 		a:hover {
 			border-bottom-color: transparent;
-			color: #f2849e !important;
+			color: #ac3a55 !important;
 		}
 
 	strong, b {
@@ -178,7 +208,10 @@ input, select, textarea {
 	}
 
 	section.experience {
-		background-color:rgba(31, 22, 22, 0.199);
+		padding: 15px;
+		margin-top: 20px;
+		background-color:rgb(88 88 88 / 20%);
+		border-radius: 5px;
 	}
 
 	span.jobType {
@@ -2985,14 +3018,6 @@ input, select, textarea {
 
 /* Menu */
 
-	#wrapper {
-		-moz-transition: opacity 0.45s ease;
-		-webkit-transition: opacity 0.45s ease;
-		-ms-transition: opacity 0.45s ease;
-		transition: opacity 0.45s ease;
-		opacity: 1;
-	}
-
 	#menu {
 		-moz-transform: translateX(22em);
 		-webkit-transform: translateX(22em);
@@ -3203,6 +3228,7 @@ input, select, textarea {
 			-webkit-flex-direction: row;
 			-ms-flex-direction: row;
 			flex-direction: row;
+			margin-left: 50px;
 		}
 
 			#footer > .inner > * > :last-child {
@@ -3467,6 +3493,22 @@ input, select, textarea {
 	}
 
 /* Wrapper */
+	#wrapper {
+		-moz-transition: opacity 0.45s ease;
+		-webkit-transition: opacity 0.45s ease;
+		-ms-transition: opacity 0.45s ease;
+		transition: opacity 0.45s ease;
+		opacity: 1;
+	}
+
+	#blogWrapper {
+		background-color: #222222;
+	}
+
+	.blogMain {
+		padding-left: 10vmax;
+	}
+
 	.loaderHeader {
 		flex: 0 0 120px;
 	}
