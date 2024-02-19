@@ -74,9 +74,11 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Add .nojekyll
-        run: touch ./out/.nojekyll && touch .nojekyll && touch ./public/.nojekyll
+        run: touch .nojekyll && touch ./public/.nojekyll
       - name: Build with Next.js
         run: npm run build
+      - name: Add .nojekyll again
+        run: touch ./out/.nojekyll
       - name: Fix permissions
         run: |
           chmod -c -R +rX ./out | while read line; do
