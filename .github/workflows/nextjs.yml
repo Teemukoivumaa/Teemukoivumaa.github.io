@@ -73,6 +73,8 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      - name: Add .nojekyll
+        run: touch ./out/.nojekyll && touch .nojekyll && touch ./public/.nojekyll
       - name: Build with Next.js
         run: npm run build
       - name: Fix permissions
@@ -80,8 +82,6 @@ jobs:
           chmod -c -R +rX ./out | while read line; do
             echo "::warning title=Invalid file permissions automatically fixed::$line"
           done
-      - name: Add .nojekyll
-        run: touch ./out/.nojekyll && touch .nojekyll && touch ./public/.nojekyll
       - run: ls -la
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
