@@ -70,7 +70,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex justify-center items-center flex-col m-[2rem]">
+      <div className="flex justify-center items-center flex-col m-[2rem] ">
         <h2 className="text-4xl font-bold text-lightRed">Experience</h2>
         <WorkExperienceCard />
       </div>
