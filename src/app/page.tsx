@@ -74,6 +74,12 @@ export default function Home() {
         <h2 className="text-4xl font-bold text-lightRed">Experience</h2>
         <WorkExperienceCard />
       </div>
+
+      <div className="fixed bottom-0 left-0 w-full h-8 flex items-center justify-center bg-backgroundColor">
+        <p className="text-xs">
+          &copy; {new Date().getFullYear()} Teemu Koivumaa. All rights reserved.
+        </p>
+      </div>
     </div>
   );
 }
