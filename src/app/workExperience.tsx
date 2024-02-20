@@ -116,7 +116,11 @@ export function WorkExperienceCard({ ...props }: CardProps) {
   return (
     <>
       {experiences.map((experience, index) => (
-        <Card className={cn("m-[2rem]")} key={index} {...props}>
+        <Card
+          className={cn("m-[2rem] max-w-screen-2xl")}
+          key={index}
+          {...props}
+        >
           <CardHeader>
             <CardTitle>
               {experience.position} at {experience.company}
