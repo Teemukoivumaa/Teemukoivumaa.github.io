@@ -1,11 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
-  experimental: {
-    images: {
-      unoptimized: true,
-    },
-  },
+  reactStrictMode: true,
+
+  // Add basePath
+  basePath: "/website",
 };
 
 export default nextConfig;
