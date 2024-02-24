@@ -52,7 +52,6 @@ export default function Home() {
       <div className="flex items-end">
         <ModeToggle />
       </div>
-
       <div className="h-[32rem] flex justify-center items-center flex-col space-y-4">
         <h1 className="text-5xl font-bold text-lightRed">Teemu</h1>
         <h1 className="text-5xl font-bold text-lightRed">Koivumaa</h1>
@@ -67,6 +66,43 @@ export default function Home() {
         </h3>
         <div>
           <SocialMediaButtons />
+        </div>
+      </div>
+      <div className="h-[20rem] flex justify-center items-center flex-col space-y-4">
+        <h2 className="text-4xl font-bold text-lightRed">Main Technologies</h2>
+        <div className="grid gap-2 grid-cols-4">
+          <code>
+            <img
+              width="50"
+              src="https://user-images.githubusercontent.com/25181517/117447155-6a868a00-af3d-11eb-9cfe-245df15c9f3f.png"
+              alt="JavaScript"
+              title="JavaScript"
+            />
+          </code>
+          <code>
+            <img
+              width="50"
+              src="https://user-images.githubusercontent.com/25181517/183897015-94a058a6-b86e-4e42-a37f-bf92061753e5.png"
+              alt="React"
+              title="React"
+            />
+          </code>
+          <code>
+            <img
+              width="50"
+              src="https://user-images.githubusercontent.com/25181517/187955005-f4ca6f1a-e727-497b-b81b-93fb9726268e.png"
+              alt="Jest"
+              title="Jest"
+            />
+          </code>
+          <code>
+            <img
+              width="50"
+              src="https://user-images.githubusercontent.com/25181517/183896132-54262f2e-6d98-41e3-8888-e40ab5a17326.png"
+              alt="AWS"
+              title="AWS"
+            />
+          </code>
         </div>
       </div>
 
