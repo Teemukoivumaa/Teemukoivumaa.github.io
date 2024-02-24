@@ -74,6 +74,12 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      transitionDuration: {
+        default: "250ms", // Default transition duration
+        "300": "300ms", // Transition duration of 300 milliseconds
+        "500": "500ms", // Transition duration of 500 milliseconds
+        "700": "700ms", // Transition duration of 700 milliseconds
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
