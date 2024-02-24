@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import React, { useState } from "react";
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import "./globals.css";
 import { Button } from "@/components/ui/button";
@@ -14,6 +14,9 @@ import { Separator } from "@/components/ui/separator";
 import { useTheme } from "next-themes";
 import { WorkExperienceCard } from "./workExperience";
 import { SocialMediaButtons } from "./button";
+import { FloatingCard } from "./consent";
+import { GoogleAnalytics } from "@next/third-parties/google";
+import { Notification } from "./alert";
 
 function ModeToggle() {
   const { setTheme } = useTheme();
@@ -47,11 +50,42 @@ function ModeToggle() {
 }
 
 export default function Home() {
+  const [showFloatingCard, setShowFloatingCard] = useState(true);
+  const [consentGiven, setConsentGiven] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
+
+  const handleConsent = (consentStatus) => {
+    setConsentGiven(consentStatus);
+    setShowNotification(true);
+  };
+
+  const handleCloseFloatingCard = () => {
+    setShowFloatingCard(false);
+    localStorage.setItem("consentGiven", "false");
+    handleConsent(false);
+  };
+
   return (
     <div>
       <div className="flex items-end">
         <ModeToggle />
       </div>
+
+      <FloatingCard
+        show={showFloatingCard && !consentGiven}
+        onClose={handleCloseFloatingCard}
+        onConsent={handleConsent}
+      />
+      {consentGiven && <GoogleAnalytics gaId="UA-154155038-1" />}
+      {showNotification && (
+        <div className="fixed bottom-4 right-4 z-50 flex items-center justify-center">
+          <Notification
+            message="Consent saved!"
+            onClose={() => setShowNotification(false)}
+          />
+        </div>
+      )}
+
       <div className="h-[32rem] flex justify-center items-center flex-col space-y-4">
         <h1 className="text-5xl font-bold text-lightRed">Teemu</h1>
         <h1 className="text-5xl font-bold text-lightRed">Koivumaa</h1>
