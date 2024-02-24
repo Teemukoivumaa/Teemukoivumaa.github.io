@@ -54,7 +54,7 @@ export default function Home() {
   const [consentGiven, setConsentGiven] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
 
-  const handleConsent = (consentStatus) => {
+  const handleConsent = (consentStatus: any) => {
     setConsentGiven(consentStatus);
     setShowNotification(true);
   };

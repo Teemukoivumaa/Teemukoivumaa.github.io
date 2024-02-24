@@ -12,7 +12,7 @@ import {
 type CardProps = React.ComponentProps<typeof Card>;
 
 export const FloatingCard = (
-  { show, onClose, onConsent },
+  { show, onClose, onConsent }: any,
   { ...props }: CardProps
 ) => {
   let consentGiven: string | null = null;
@@ -36,20 +36,23 @@ export const FloatingCard = (
   )
     return null;
 
+  const title = "Data Collection Consent";
+  const desc =
+    "I would like to collect some data for improving our services. Do you consent to this?";
+  const yes = "I Consent";
+  const no = "I don't consent";
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       <Card className={cn("m-[2rem] max-w-screen-2xl")} {...props}>
         <CardHeader>
-          <CardTitle>Data Collection Consent</CardTitle>
-          <CardDescription>
-            I would like to collect some data for improving our services. Do you
-            consent to this?
-          </CardDescription>
+          <CardTitle>{title}</CardTitle>
+          <CardDescription>{desc}</CardDescription>
         </CardHeader>
         <CardContent>
-          <Button onClick={handleConsent}>I Consent</Button>
+          <Button onClick={handleConsent}>{yes}</Button>
           <Button variant="secondary" className="ml-2" onClick={onClose}>
-            I don't consent
+            {no}
           </Button>
         </CardContent>
       </Card>
