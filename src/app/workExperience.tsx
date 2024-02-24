@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import {
   Card,
@@ -9,6 +9,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ChevronDownIcon, ChevronUpIcon } from "@radix-ui/react-icons";
 
 const experiences = [
   {
@@ -97,28 +99,60 @@ const experiences = [
 type CardProps = React.ComponentProps<typeof Card>;
 
 export function WorkExperienceCard({ ...props }: CardProps) {
+  const [showMore, setShowMore] = useState(false);
+
+  const toggleShowMore = () => {
+    setShowMore(!showMore);
+  };
+
+  const allExperiences = experiences.map((experience, index) => (
+    <Card className={cn("m-[2rem] max-w-screen-2xl")} key={index} {...props}>
+      <CardHeader>
+        <CardTitle>
+          {experience.position} at {experience.company}
+        </CardTitle>
+        <CardDescription>
+          {experience.type} <br></br>
+          {experience.startTime} - {experience.endTime}
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <h2>{experience.description}</h2>
+      </CardContent>
+    </Card>
+  ));
+
+  const initialExperiences = allExperiences.slice(0, 4);
+  const restExperiences = allExperiences.slice(5, allExperiences.length);
+
   return (
     <>
-      {experiences.map((experience, index) => (
-        <Card
-          className={cn("m-[2rem] max-w-screen-2xl")}
-          key={index}
-          {...props}
-        >
-          <CardHeader>
-            <CardTitle>
-              {experience.position} at {experience.company}
-            </CardTitle>
-            <CardDescription>
-              {experience.type} <br></br>
-              {experience.startTime} - {experience.endTime}
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <h2>{experience.description}</h2>
-          </CardContent>
-        </Card>
-      ))}
+      {
+        <div>
+          <div>{initialExperiences}</div>
+
+          <div
+            className={`mb-[3rem] overflow-hidden transition-transform duration-700 motion-reduce:transition-none motion-reduce:hover:transform-none ${
+              showMore ? "-translate-y-0" : "translate-y-full"
+            }`}
+          >
+            <div style={{ height: showMore ? "auto" : 0 }}>
+              {restExperiences}
+            </div>
+          </div>
+
+          <div className="mb-[5rem] flex justify-center">
+            <Button onClick={toggleShowMore}>
+              {showMore ? (
+                <ChevronUpIcon className="h-6 w-6" />
+              ) : (
+                <ChevronDownIcon className="h-6 w-6" />
+              )}
+              {showMore ? "Show Less" : "Show More"}
+            </Button>
+          </div>
+        </div>
+      }
     </>
   );
 }
