@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import "./globals.css";
 import { Button } from "@/components/ui/button";
@@ -17,6 +17,7 @@ import { SocialMediaButtons } from "./button";
 import { FloatingCard } from "./consent";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Notification } from "./alert";
+import Script from "next/script";
 
 function ModeToggle() {
   const { setTheme } = useTheme();
@@ -50,19 +51,26 @@ function ModeToggle() {
 }
 
 export default function Home() {
-  const [showFloatingCard, setShowFloatingCard] = useState(true);
   const [consentGiven, setConsentGiven] = useState(false);
+  const [showFloatingCard, setShowFloatingCard] = useState(true);
   const [showNotification, setShowNotification] = useState(false);
 
-  const handleConsent = (consentStatus: any) => {
-    setConsentGiven(consentStatus);
-    setShowNotification(true);
+  const handleConsent = (consentStatus: boolean) => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("consentGiven", `${consentStatus}`);
+
+      setConsentGiven(consentStatus);
+      setShowFloatingCard(consentStatus);
+      setShowNotification(true);
+    }
   };
 
-  const handleCloseFloatingCard = () => {
-    setShowFloatingCard(false);
-    localStorage.setItem("consentGiven", "false");
-    handleConsent(false);
+  const consentModes = {
+    ad_storage: "denied",
+    analytics_storage: "denied",
+    personalization_storage: "denied",
+    functionality_storage: "denied",
+    security_storage: "denied",
   };
 
   return (
@@ -73,16 +81,24 @@ export default function Home() {
 
       <FloatingCard
         show={showFloatingCard && !consentGiven}
-        onClose={handleCloseFloatingCard}
         onConsent={handleConsent}
       />
-      {consentGiven && <GoogleAnalytics gaId="UA-154155038-1" />}
+
+      {consentGiven && <GoogleAnalytics gaId="G-QPZ2LV9RJV" />}
+      <Script id="google-analytics" strategy="lazyOnload">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-QPZ2LV9RJV',{
+          page_path: window.location.pathname,
+          }
+          gtag('consent', 'default', ${consentModes})
+         `}
+      </Script>
       {showNotification && (
         <div className="fixed bottom-4 right-4 z-50 flex items-center justify-center">
-          <Notification
-            message="Consent saved!"
-            onClose={() => setShowNotification(false)}
-          />
+          <Notification onClose={() => setShowNotification(false)} />
         </div>
       )}
 
