@@ -84,18 +84,29 @@ export default function Home() {
         onConsent={handleConsent}
       />
 
-      {consentGiven && <GoogleAnalytics gaId="G-QPZ2LV9RJV" />}
-      <Script id="google-analytics" strategy="lazyOnload">
-        {`
+      {consentGiven && (
+        <>
+          <GoogleAnalytics gaId="G-QPZ2LV9RJV" />
+          <Script id="google-analytics" strategy="lazyOnload">
+            {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'G-QPZ2LV9RJV',{
           page_path: window.location.pathname,
           }
-          gtag('consent', 'default', ${consentModes})
+          gtag('consent', 'default', {
+            "ad_storage": "granted",
+            "analytics_storage": "granted",
+            "personalization_storage": "denied",
+            "functionality_storage": "denied",
+            "security_storage": "denied",
+          })
          `}
-      </Script>
+          </Script>
+        </>
+      )}
+
       {showNotification && (
         <div className="fixed bottom-4 right-4 z-50 flex items-center justify-center">
           <Notification onClose={() => setShowNotification(false)} />
