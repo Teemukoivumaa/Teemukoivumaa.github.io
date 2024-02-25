@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -12,29 +14,18 @@ import {
 type CardProps = React.ComponentProps<typeof Card>;
 
 export const FloatingCard = (
-  { show, onClose, onConsent }: any,
+  { show, onConsent }: any,
   { ...props }: CardProps
 ) => {
   let consentGiven: string | null = null;
-  if (typeof window !== "undefined") {
+  const windowVisiblity = typeof window !== "undefined";
+  if (windowVisiblity) {
     consentGiven = localStorage.getItem("consentGiven");
   }
 
-  const [consented, setConsented] = useState(false);
+  if (!windowVisiblity) return null;
 
-  const handleConsent = () => {
-    setConsented(true);
-    localStorage.setItem("consentGiven", "true");
-    onConsent(true);
-  };
-
-  if (
-    !show ||
-    consentGiven ||
-    consentGiven === "true" ||
-    consentGiven === "false"
-  )
-    return null;
+  if (!show || consentGiven === "true" || consentGiven === "false") return null;
 
   const title = "Data Collection Consent";
   const desc =
@@ -50,8 +41,12 @@ export const FloatingCard = (
           <CardDescription>{desc}</CardDescription>
         </CardHeader>
         <CardContent>
-          <Button onClick={handleConsent}>{yes}</Button>
-          <Button variant="secondary" className="ml-2" onClick={onClose}>
+          <Button onClick={() => onConsent(true)}>{yes}</Button>
+          <Button
+            variant="secondary"
+            className="ml-2"
+            onClick={() => onConsent(false)}
+          >
             {no}
           </Button>
         </CardContent>
