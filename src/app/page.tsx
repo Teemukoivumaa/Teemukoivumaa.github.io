@@ -87,6 +87,10 @@ export default function Home() {
       {consentGiven && (
         <>
           <GoogleAnalytics gaId="G-QPZ2LV9RJV" />
+          <Script
+            strategy="lazyOnload"
+            src={`https://www.googletagmanager.com/gtag/js?id=G-QPZ2LV9RJV`}
+          />
           <Script id="google-analytics" strategy="lazyOnload">
             {`
           window.dataLayer = window.dataLayer || [];
